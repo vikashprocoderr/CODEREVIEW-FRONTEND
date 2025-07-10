@@ -26,7 +26,7 @@ function App() {
     setLoading(true)
     setReview("")
     try {
-     const backendUrl = import.meta.env.VITE_BACKEND_URL;
+     const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
      const response = await axios.post(`${backendUrl}/ai/get-review`, { code })
       setReview(response.data)
     } catch (err) {
