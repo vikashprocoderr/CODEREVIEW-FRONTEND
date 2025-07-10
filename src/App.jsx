@@ -26,7 +26,8 @@ function App() {
     setLoading(true)
     setReview("")
     try {
-      const response = await axios.post('http://localhost:3000/ai/get-review', { code })
+     const backendUrl = import.meta.env.VITE_BACKEND_URL;
+     const response = await axios.post(`${backendUrl}/ai/get-review`, { code })
       setReview(response.data)
     } catch (err) {
       setReview("Error: " + (err.response?.data?.error || err.message))
